@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tivaly C&M | Menú digital</title>
+  <meta name="description" content="Consulta el menú digital de Tivaly C&M de forma elegante y clara." />
+  
+  <!-- Fuentes elegantes para restaurante -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero-card">
+      <div class="hero-copy">
+        <p class="eyebrow">Descubre nuestra propuesta</p>
+        <h1>Tivaly C&amp;M</h1>
+        <p class="subtitle">Desliza hacia abajo para visualizar nuestro menú completo.</p>
+      </div>
+      <div class="hero-actions">
+        <!-- Opcional: botón para descargar directamente -->
+        <a class="btn btn-outline" href="menu-tivaly.pdf" download>Descargar PDF</a>
+      </div>
+    </section>
+
+    <section class="viewer-card">
+      <div class="viewer-toolbar">
+        <div class="toolbar-left">
+          <h2>Menú Digital</h2>
+          <p id="docMeta" class="status-text">Cargando documento…</p>
+        </div>
+        <div class="toolbar-right">
+          <a class="btn btn-primary" href="menu-tivaly.pdf" target="_blank" rel="noopener">Pantalla completa</a>
+        </div>
+      </div>
+
+      <div class="viewer-body">
+        <!-- Estados -->
+        <div id="loadingState" class="state-box">
+          <div class="spinner"></div>
+          <p>Preparando el menú...</p>
+        </div>
+        <div id="errorState" class="state-box error" hidden>
+          <p>No se pudo cargar el menú. Verifica que el archivo <strong>menu-tivaly.pdf</strong> esté en la misma carpeta.</p>
+        </div>
+        
+        <!-- Contenedor del PDF -->
+        <div id="pdfContainer" class="pdf-container" hidden></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PDF.js via CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+:root {
+  --primary-color: #CBA153; /* Dorado elegante */
+  --primary-hover: #b38b42;
+  --bg-color: #F9F8F6; /* Blanco roto cálido */
+  --card-bg: #FFFFFF;
+  --text-dark: #2C2C2C;
+  --text-muted: #6B6B6B;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+  --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
+  --radius: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Tipografía elegante */
+h1, h2, .eyebrow {
+  font-family: 'Playfair Display', serif;
+}
+
+.shell {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* --- Hero Section --- */
+.hero-card {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 1rem;
+}
+
+.eyebrow {
+  color: var(--primary-color);
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-copy h1 {
+  font-size: 3rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
+}
+
+/* --- Botones --- */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-weight: 500;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text-dark);
+  border: 1px solid #ddd;
+}
+
+.btn-outline:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* --- Viewer Section --- */
+.viewer-card {
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.viewer-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.toolbar-left h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+
+.status-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.viewer-body {
+  padding: 2rem;
+  background-color: #F0F0F0; /* Fondo gris para contrastar las hojas */
+}
+
+/* --- Estados --- */
+.state-box {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(203, 161, 83, 0.3);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem auto;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.error {
+  color: #d9534f;
+}
+
+/* --- PDF Container --- */
+.pdf-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Espacio entre páginas */
+}
+
+.pdf-page-wrapper {
+  box-shadow: var(--shadow-lg);
+  background: white;
+  width: 100%;
+  max-width: 800px; /* Ancho máximo de la hoja */
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.pdf-page-wrapper canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* --- Responsivo --- */
+@media (max-width: 600px) {
+  .viewer-toolbar {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 1rem;
+  }
+  .viewer-body {
+    padding: 1rem 0; /* Quita el padding lateral en móviles para aprovechar espacio */
+  }
+}
