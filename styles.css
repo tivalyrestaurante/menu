@@ -1,12 +1,12 @@
 :root {
-  --primary-color: #CBA153; /* Dorado elegante */
-  --primary-hover: #b38b42;
-  --bg-color: #F9F8F6; /* Blanco roto cálido */
-  --card-bg: #FFFFFF;
-  --text-dark: #2C2C2C;
-  --text-muted: #6B6B6B;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
-  --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
+  --primary-color: #D4AF37; /* Dorado Tivaly */
+  --primary-hover: #b8952b;
+  --bg-color: #0A0A0A; /* Fondo negro elegante */
+  --card-bg: #141414; /* Negro ligeramente más claro */
+  --text-light: #F0F0F0; /* Texto claro */
+  --text-muted: #9E9E9E; /* Texto secundario */
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.5);
+  --shadow-lg: 0 16px 50px rgba(0,0,0,0.8);
   --radius: 12px;
 }
 
@@ -19,13 +19,13 @@
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-color);
-  color: var(--text-dark);
-  line-height: 1.6;
+  color: var(--text-light);
+  line-height: 1.3; /* Interlineado reducido */
 }
 
-/* Tipografía elegante */
 h1, h2, .eyebrow {
   font-family: 'Playfair Display', serif;
+  font-weight: 600;
 }
 
 .shell {
@@ -34,37 +34,31 @@ h1, h2, .eyebrow {
   padding: 2rem 1rem;
 }
 
-/* --- Hero Section --- */
+/* --- Hero Section & Logo --- */
 .hero-card {
   text-align: center;
-  margin-bottom: 3rem;
-  padding: 2rem 1rem;
+  margin-bottom: 2rem; /* Espaciado reducido */
 }
 
-.eyebrow {
-  color: var(--primary-color);
-  font-style: italic;
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-}
-
-.hero-copy h1 {
-  font-size: 3rem;
-  color: var(--text-dark);
-  margin-bottom: 1rem;
+/* Estilos específicos para tu logo */
+.brand-logo {
+  max-width: 260px; /* Tamaño ideal para celular y PC */
+  height: auto;
+  margin: 0 auto 0.5rem auto;
+  display: block;
 }
 
 .subtitle {
   color: var(--text-muted);
-  font-size: 1.1rem;
+  font-size: 1rem;
   max-width: 500px;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 1.5rem auto;
 }
 
 /* --- Botones --- */
 .btn {
   display: inline-block;
-  padding: 0.8rem 1.5rem;
+  padding: 0.7rem 1.4rem;
   font-weight: 500;
   border-radius: 6px;
   text-decoration: none;
@@ -76,7 +70,8 @@ h1, h2, .eyebrow {
 
 .btn-primary {
   background-color: var(--primary-color);
-  color: #fff;
+  color: #000; /* Texto negro sobre botón dorado */
+  font-weight: 600;
 }
 
 .btn-primary:hover {
@@ -85,13 +80,13 @@ h1, h2, .eyebrow {
 
 .btn-outline {
   background-color: transparent;
-  color: var(--text-dark);
-  border: 1px solid #ddd;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
 
 .btn-outline:hover {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+  background-color: var(--primary-color);
+  color: #000;
 }
 
 /* --- Viewer Section --- */
@@ -100,23 +95,25 @@ h1, h2, .eyebrow {
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
+  border: 1px solid #222;
 }
 
 .viewer-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 2rem;
-  border-bottom: 1px solid #f0f0f0;
-  background-color: #fff;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #222;
+  background-color: var(--card-bg);
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
 .toolbar-left h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.2rem;
+  font-size: 1.3rem;
+  color: var(--primary-color);
+  margin-bottom: 0.1rem;
 }
 
 .status-text {
@@ -125,21 +122,21 @@ h1, h2, .eyebrow {
 }
 
 .viewer-body {
-  padding: 2rem;
-  background-color: #F0F0F0; /* Fondo gris para contrastar las hojas */
+  padding: 1.5rem;
+  background-color: #050505; /* Fondo ultra oscuro para resaltar el PDF */
 }
 
 /* --- Estados --- */
 .state-box {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 3rem 1rem;
   color: var(--text-muted);
 }
 
 .spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(203, 161, 83, 0.3);
+  border: 3px solid rgba(212, 175, 55, 0.2);
   border-top-color: var(--primary-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -148,25 +145,22 @@ h1, h2, .eyebrow {
 
 @keyframes spin { 100% { transform: rotate(360deg); } }
 
-.error {
-  color: #d9534f;
-}
-
 /* --- PDF Container --- */
 .pdf-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px; /* Espacio entre páginas */
+  gap: 15px; /* Menos espacio entre hojas */
 }
 
 .pdf-page-wrapper {
   box-shadow: var(--shadow-lg);
   background: white;
   width: 100%;
-  max-width: 800px; /* Ancho máximo de la hoja */
-  border-radius: 4px;
+  max-width: 800px;
+  border-radius: 6px;
   overflow: hidden;
+  border: 1px solid #333;
 }
 
 .pdf-page-wrapper canvas {
@@ -177,13 +171,23 @@ h1, h2, .eyebrow {
 
 /* --- Responsivo --- */
 @media (max-width: 600px) {
+  .shell {
+    padding: 1.5rem 0.5rem;
+  }
+  .brand-logo {
+    max-width: 220px;
+  }
   .viewer-toolbar {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
     text-align: center;
-    padding: 1rem;
   }
   .viewer-body {
-    padding: 1rem 0; /* Quita el padding lateral en móviles para aprovechar espacio */
+    padding: 1rem 0;
+  }
+  .pdf-page-wrapper {
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
 }
